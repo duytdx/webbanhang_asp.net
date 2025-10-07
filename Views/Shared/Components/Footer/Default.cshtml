@@ -1,0 +1,33 @@
+﻿@model ContactModel
+<div class="row">
+	@if (Model != null)
+	{
+		<div class="col-sm-3">
+			<div class="companyinfo">
+				@if (!string.IsNullOrEmpty(Model.LogoImg))
+				{
+					<p><img src="~/media/logo/@Model.LogoImg" width="200px" height="120px" /></p>
+				}
+				<p>@Html.Raw(Model.Description ?? "")</p>
+			</div>
+		</div>
+		<div class="col-sm-5 col-md-5">
+			@Html.Raw(Model.Map ?? "")
+		</div>
+		<div class="col-sm-4">
+			<div class="address">
+				<h5><b>Name : @(Model.Name ?? "")</b></h5>
+				<h5>Email : @(Model.Email ?? "")</h5>
+				<h5>@(Model.Phone ?? "")</h5>
+			</div>
+		</div>
+	}
+	else
+	{
+		<div class="col-sm-12">
+			<div class="companyinfo">
+				<p>Chưa có thông tin liên hệ</p>
+			</div>
+		</div>
+	}
+</div>
